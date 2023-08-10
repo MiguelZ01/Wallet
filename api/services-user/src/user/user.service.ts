@@ -22,18 +22,25 @@ export class UserService {
   }
 
   findAll() {
-    return `This action returns all user`;
+    return this.userModel.find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} user`;
+  findOne(id: string) {
+    return this.userModel.findById(id);
   }
 
-  update(id: number, updateUserDto: UpdateUserDto) {
-    return `This action updates a #${id} user`;
+  async update(id: string, updateUserDto: UpdateUserDto) {
+
+    const updateUser = await this.userModel.findByIdAndUpdate(
+      id,
+      updateUserDto,
+      { new: true}
+    )
+
+    return updateUser;
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} user`;
+  delete(id: string) {
+    return this.userModel.findByIdAndDelete(id);
   }
 }
