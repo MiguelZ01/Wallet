@@ -1,34 +1,70 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Post,
+  Body,
+  UseGuards,
+  Req,
+  Get,
+  Res,
+} from '@nestjs/common';
 import { AuthService } from './auth.service';
-import { CreateAuthDto } from './dto/create-auth.dto';
-import { UpdateAuthDto } from './dto/update-auth.dto';
+import { LoginAuthDto } from './dto/login-auth.dto';
+import { RegisterAuthDto } from './dto/register-auth.dto';
+import { SocialAuthDto } from './dto/social-auth.dto';
+import { ApiTags } from '@nestjs/swagger';
+import { AuthGuard } from '@nestjs/passport';
 
+@ApiTags('auth')
 @Controller('auth')
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
-  @Post()
-  create(@Body() createAuthDto: CreateAuthDto) {
-    return this.authService.create(createAuthDto);
+  @Post('register')
+  registerUser(@Body() registerAuthDto: RegisterAuthDto) {
+    return this.authService.register(registerAuthDto);
   }
 
-  @Get()
-  findAll() {
-    return this.authService.findAll();
+  @Post('login')
+  loginUser(@Body() loginAuthDto: LoginAuthDto) {
+    return this.authService.login(loginAuthDto);
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.authService.findOne(+id);
+  @Get('google')
+  @UseGuards(AuthGuard('google'))
+  // eslint-disable-next-line @typescript-eslint/no-empty-function, @typescript-eslint/no-unused-vars
+  async googleAuth(@Req() req: any) {}
+
+  @Get('google/callback')
+  @UseGuards(AuthGuard('google'))
+  async googleAuthRedirect(@Req() req: any, @Res() res: any) {
+    const socialAuth: SocialAuthDto = {
+      email: req.user.email,
+      name: req.user.name,
+      provider: 'google',
+    };
+
+    const { token } = await this.authService.registerSocial(socialAuth);
+    if (token)
+      res.redirect('http://localhost:4200/login/callback/?jwt=' + token);
+    else res.redirect('http://localhost:4200/login/failure');
   }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateAuthDto: UpdateAuthDto) {
-    return this.authService.update(+id, updateAuthDto);
-  }
+  @Get('facebook')
+  @UseGuards(AuthGuard('facebook'))
+  // eslint-disable-next-line @typescript-eslint/no-empty-function, @typescript-eslint/no-unused-vars
+  async facebookLogin(@Req() req: any) {}
 
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.authService.remove(+id);
+  @Get('facebook/callback')
+  @UseGuards(AuthGuard('facebook'))
+  async facebookAuthRedirect(@Req() req: any, @Res() res: any) {
+    const socialAuth: SocialAuthDto = {
+      email: req.user.email,
+      name: req.user.name,
+      provider: 'facebook',
+    };
+    const { token } = await this.authService.registerSocial(socialAuth);
+    if (token)
+      res.redirect('http://localhost:4200/login/callback/?jwt=' + token);
+    else res.redirect('http://localhost:4200/login/failure');
   }
 }
