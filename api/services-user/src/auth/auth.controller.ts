@@ -17,6 +17,8 @@ import { AuthGuard } from '@nestjs/passport';
 @ApiTags('auth')
 @Controller('auth')
 export class AuthController {
+  expiresIn: number = 24 * 60 * 60 * 1000;
+
   constructor(private readonly authService: AuthService) {}
 
   @Post('register')
@@ -43,9 +45,18 @@ export class AuthController {
       provider: 'google',
     };
 
-    const { token } = await this.authService.registerSocial(socialAuth);
-    if (token)
-      res.redirect('http://localhost:4200/login/callback/?jwt=' + token);
+    const { token, user } = await this.authService.registerSocial(socialAuth);
+    if (token) {
+      const userString = encodeURIComponent(JSON.stringify(user));
+
+      res.cookie('accessToken', token, {
+        secure: true,
+        sameSite: 'lax',
+        maxAge: this.expiresIn,
+      });
+      
+      res.redirect('http://localhost:4200/login/callback/?jwt=' + userString);
+    }
     else res.redirect('http://localhost:4200/login/failure');
   }
 
@@ -62,9 +73,26 @@ export class AuthController {
       name: req.user.name,
       provider: 'facebook',
     };
-    const { token } = await this.authService.registerSocial(socialAuth);
-    if (token)
-      res.redirect('http://localhost:4200/login/callback/?jwt=' + token);
-    else res.redirect('http://localhost:4200/login/failure');
+    const { token, user } = await this.authService.registerSocial(socialAuth);
+    if (token) {
+      const userString = encodeURIComponent(JSON.stringify(user));
+
+      res.cookie('accessToken', token, {
+        secure: true,
+        sameSite: 'lax',
+        maxAge: this.expiresIn,
+      });
+      res.redirect(
+        'http://localhost:4200/login/success?userData=' + userString,
+      );
+    } else {
+      res.redirect('http://localhost:4200/login/failure');
+    }
+  }
+
+  @Get('verifyJWT')
+  @UseGuards(AuthGuard('jwt'))
+  verifyJWT() {
+    return this.authService.verifyJWT();
   }
 }
