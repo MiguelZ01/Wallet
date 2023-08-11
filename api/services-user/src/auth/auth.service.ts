@@ -81,7 +81,7 @@ export class AuthService {
       };
       const token = this.jwtService.sign(payload);
 
-      return { token };
+      return { token, user: existingUser };
     }
 
     const newUser = new this.userModel({
@@ -95,6 +95,13 @@ export class AuthService {
     const payload = { id: newUser._id.toString(), name: newUser.name };
     const token = this.jwtService.sign(payload);
 
-    return { token };
+    return { token, user: newUser };
+  }
+  
+  verifyJWT() {
+    return {
+      statusCode: HttpStatus.OK,
+      message: 'Valid token',
+    };
   }
 }
