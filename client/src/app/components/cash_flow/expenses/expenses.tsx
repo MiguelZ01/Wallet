@@ -1,5 +1,5 @@
 import React from 'react'
-import { Expense } from "../../../interfaces/expense"
+import { Expense } from "../../../core/models/expense"
 
 interface ExpenseListProps {
     expenses: Expense[];
