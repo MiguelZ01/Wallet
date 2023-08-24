@@ -1,6 +1,10 @@
+import Login from "./components/auth/login/login"
+
 function HomePage() {
   return (
-    <div>HomePage</div>
+    <div>
+      <Login/>
+    </div>
   )
 }
 

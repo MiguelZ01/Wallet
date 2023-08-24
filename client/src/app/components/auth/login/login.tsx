@@ -1,18 +1,19 @@
 import React from 'react'
+import Auth from '../../../../Assets/Auth.png'
 
-function login() {
+function Login() {
   return (
     <div>
-        <h1>LOGIN</h1>
-        <form action="">
-            <label htmlFor="">Email:</label>
-            <input type="email" />
+        <div>
+          <div>
 
-            <label htmlFor="">Password:</label>
-            <input type="password" />
-        </form>
+          </div>
+          <div>
+            {/* <img src={Auth} alt="" /> */}
+          </div>
+        </div>
     </div>
   )
 }
 
-export default login
+export default Login
