@@ -6,7 +6,6 @@ function Login() {
     <div>
         <div>
           <div>
-
           </div>
           <div>
             {/* <img src={Auth} alt="" /> */}
