@@ -1,11 +1,11 @@
-import Login from "@app/auth/login/login"
+import Login from '@app/auth/login/login';
 
 function HomePage() {
   return (
     <div>
-      <Login/>
+      <Login />
     </div>
-  )
+  );
 }
 
-export default HomePage
+export default HomePage;
