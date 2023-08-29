@@ -27,20 +27,20 @@
       "@assets/*": [
         "assets/*"
       ],
+      "@app/*": [
+        "app/*"
+      ],
       "@components/*": [
-        "app/components/*"
+        "components/*"
       ],
       "@core/*": [
-        "app/core/*"
-      ],
-      "@pages/*": [
-        "app/pages/*"
+        "core/*"
       ],
       "@store/*": [
-        "app/store/*"
+        "store/*"
       ],
       "@styles/*": [
-        "app/styles/*"
+        "styles/*"
       ]
     }
   },
