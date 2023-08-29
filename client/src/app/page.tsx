@@ -1,4 +1,4 @@
-import Login from "./components/auth/login/login"
+import Login from "@app/auth/login/login"
 
 function HomePage() {
   return (
