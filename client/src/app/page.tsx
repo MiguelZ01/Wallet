@@ -1,4 +1,4 @@
-import Login from "@app/auth/login/login"
+import Login from "@app/auth/login/page"
 
 function HomePage() {
   return (
