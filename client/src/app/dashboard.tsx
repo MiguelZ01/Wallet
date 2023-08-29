@@ -3,7 +3,7 @@ import Navbar from '@components/navbar/navbar';
 import Image from 'next/image';
 import Auth from '@assets/Auth.png';
 
-function Dashboard() {
+export default function Dashboard() {
   return (
     <div>
       <Navbar />
@@ -11,5 +11,3 @@ function Dashboard() {
     </div>
   );
 }
-
-export default Dashboard;

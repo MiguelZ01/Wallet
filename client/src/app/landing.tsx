@@ -1,6 +1,6 @@
 import React from 'react';
 
-function landing() {
+export default function landing() {
   return (
     <div>
       <h1>Welcome to Wallet!</h1>
@@ -13,5 +13,3 @@ function landing() {
     </div>
   );
 }
-
-export default landing;

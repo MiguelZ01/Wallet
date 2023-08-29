@@ -54,10 +54,9 @@ export class AuthController {
         sameSite: 'lax',
         maxAge: this.expiresIn,
       });
-      
+
       res.redirect('http://localhost:4200/login/callback/?jwt=' + userString);
-    }
-    else res.redirect('http://localhost:4200/login/failure');
+    } else res.redirect('http://localhost:4200/login/failure');
   }
 
   @Get('facebook')

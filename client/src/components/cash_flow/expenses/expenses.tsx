@@ -5,7 +5,7 @@ interface ExpenseListProps {
   expenses: Expense[];
 }
 
-const ExpenseList: React.FC<ExpenseListProps> = ({ expenses }) => {
+export default function ExpenseList({ expenses }: ExpenseListProps) {
   return (
     <div>
       <h2>Lista de Gastos</h2>
@@ -19,6 +19,4 @@ const ExpenseList: React.FC<ExpenseListProps> = ({ expenses }) => {
       </ul>
     </div>
   );
-};
-
-export default ExpenseList;
+}

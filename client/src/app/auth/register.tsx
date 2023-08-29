@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import Auth from '@assets/Auth.png';
 
-function Register() {
+export default function Register() {
   return (
     <div>
       <div>
@@ -31,5 +31,3 @@ function Register() {
     </div>
   );
 }
-
-export default Register;

@@ -3,7 +3,7 @@ import Google from '@assets/Google.png';
 import Image from 'next/image';
 import Auth from '@assets/Auth.png';
 
-function Login() {
+export default function Login() {
   return (
     <div>
       <div>
@@ -38,5 +38,3 @@ function Login() {
     </div>
   );
 }
-
-export default Login;
