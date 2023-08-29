@@ -1,11 +1,9 @@
 import Login from "@app/auth/login/page"
 
-function HomePage() {
+export default function HomePage() {
   return (
     <div>
-      <Login/>
+      <Login />
     </div>
-  )
+  );
 }
-
-export default HomePage

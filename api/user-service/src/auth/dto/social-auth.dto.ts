@@ -1,14 +1,13 @@
-import { IsEmail, IsNotEmpty } from "class-validator";
+import { IsEmail, IsNotEmpty } from 'class-validator';
 
 export class SocialAuthDto {
-    @IsNotEmpty()
-    name: string;
+  @IsNotEmpty()
+  name: string;
 
-    @IsEmail()
-    @IsNotEmpty()
-    email: string;
+  @IsEmail()
+  @IsNotEmpty()
+  email: string;
 
-    @IsNotEmpty()
-    provider: 'google' | 'facebook';
-
+  @IsNotEmpty()
+  provider: 'google' | 'facebook';
 }

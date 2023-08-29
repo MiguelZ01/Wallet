@@ -97,7 +97,7 @@ export class AuthService {
 
     return { token, user: newUser };
   }
-  
+
   verifyJWT() {
     return {
       statusCode: HttpStatus.OK,

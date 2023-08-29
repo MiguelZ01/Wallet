@@ -1,9 +1,9 @@
-import React from 'react'
-import Google from '@assets/Google.png'
-import Image from 'next/image' 
-import Auth from '@assets/Auth.png'
+import React from 'react';
+import Google from '@assets/Google.png';
+import Image from 'next/image';
+import Auth from '@assets/Auth.png';
 
-function Login() {
+export default function Login() {
   return (
     <div className='flex w-screen h-screen '>
           <div className='flex flex-col w-[60%] bg-[#000000]' >
@@ -13,9 +13,11 @@ function Login() {
               <p>Ingresar con google</p>
             </button>
 
-            <p>_____ o _____</p>
+        <p>_____ o _____</p>
 
-            <form action="">
+        <form action="">
+          <label htmlFor="email">Email</label>
+          <input type="email" name="email" />
 
               <div className='flex flex-col'>
                 <label htmlFor="email">
@@ -24,10 +26,9 @@ function Login() {
                 <input type="email" name='email'/>
               </div>
 
-              <label htmlFor="password">
-                Password
-              </label>
-              <input type="password" name='password'/>
+          <a href="#">
+            <p>¿Olvidaste la contraseña?</p>
+          </a>
 
               <a href="#">
               <p>¿Olvidaste la contraseña?</p>
@@ -43,7 +44,5 @@ function Login() {
             <Image src={Auth} alt='Auth' width='100'/>
           </div>
     </div>
-  )
+  );
 }
-
-export default Login
