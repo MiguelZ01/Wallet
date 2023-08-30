@@ -8,7 +8,7 @@ const config: Config = {
   ],
   theme: {
     extend: {
-     colors: {MainYellow: '#ffa500', Button: '#D9D9D9'},
+      colors: { MainYellow: '#ffa500', Button: '#D9D9D9' },
     },
   },
   plugins: [],
