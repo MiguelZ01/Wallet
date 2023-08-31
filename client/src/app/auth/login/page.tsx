@@ -94,7 +94,7 @@ export default function Login() {
               <div className="flex justify-center text-sm">
                 <p>
                   ¿No tienes cuenta?{' '}
-                  <Link className="font-semibold" href="#">
+                  <Link className="font-semibold" href="/auth/register">
                     Registrate
                   </Link>
                 </p>
