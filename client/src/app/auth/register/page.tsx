@@ -1,19 +1,21 @@
 import React from 'react';
 import Image from 'next/image';
-import Auth from '@assets/Auth.png';
+import Link from 'next/link';
+import Auth from '@assets/images/login/Auth.png';
 
 export default function Register() {
   return (
     <div className="flex w-screen h-screen my-auto">
-      <div className="flex flex-col w-[60%] bg-[#000000] p-28 px-56">
-        <h1 className="text-center mb-8">REGISTRO</h1>
+      <div className="flex flex-col justify-center items-center w-[60%]">
+        <section className="w-[40%]">
+        <h1 className="text-center mb-8 font-bold text-xl">REGISTRO</h1>
         <form action="">
           <div className="flex flex-col mb-4">
-            <label htmlFor="email">Nombre</label>
+            <label htmlFor="name">Nombre</label>
             <input
               className="bg-Button rounded h-8 p-2 text-black"
               type="text"
-              name="email"
+              name="name"
             />
           </div>
 
@@ -27,43 +29,52 @@ export default function Register() {
           </div>
 
           <div className="flex flex-col mb-4">
-            <label htmlFor="email">Contraseña</label>
+            <label htmlFor="password">Contraseña</label>
             <input
               className="bg-Button rounded h-8 p-2 text-black"
               type="password"
-              name="email"
+              name="password"
             />
           </div>
 
           <div className="flex flex-col mb-8">
-            <label htmlFor="email">Confirmar contraseña</label>
+            <label htmlFor="confirm">Confirmar contraseña</label>
             <input
               className="bg-Button rounded h-8 p-2 text-black"
               type="password"
-              name="email"
+              name="confirm"
             />
           </div>
 
           <div className="flex justify-between">
-            <button
-              type="submit"
-              className="border border-solid border-20 border-MainYellow text-MainYellow w-[30%] rounded h-8 font-medium mb-2"
-            >
-              Cancelar
-            </button>
+            <Link href="/auth/login" className="border border-solid border-20 border-MainYellow text-MainYellow w-[30%] rounded h-8 font-medium mb-2 flex items-center justify-center">
+              <button
+                type="submit"
+                >
+                Cancelar
+              </button>
+            </Link>
 
-            <button
-              type="submit"
-              className="bg-MainYellow w-[30%] text-black rounded h-8 font-medium mb-2"
-            >
-              Registrar
-            </button>
+            <Link href="/auth/login" className=" bg-MainYellow text-black w-[30%] rounded h-8 font-medium mb-2 flex items-center justify-center">
+              <button
+                type="submit"
+                >
+                Registrar
+              </button>
+            </Link>
           </div>
         </form>
+        </section>
       </div>
-      <div className="flex w-[40%] bg-[#ffa500]">
-        <Image className="w-[70%] h-[40%]" src={Auth} alt="Auth" width="100" />
-      </div>
+      <div className="flex w-[40%] bg-[#ffa500] items-center justify-center">
+          <Image
+            src={Auth}
+            alt="Auth"
+            width={1000}
+            height={1000}
+            className="w-[90%] "
+          />
+        </div>
     </div>
   );
 }

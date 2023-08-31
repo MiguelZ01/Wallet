@@ -7,22 +7,22 @@ export default function Navbar() {
         <ul>
           <a href="">
             <li>
-              <button>Dashboard</button>
+              <button>Wallet</button>
             </li>
           </a>
           <a href="">
             <li>
-              <button>Records</button>
+              <button>Flujo de caja</button>
             </li>
           </a>
           <a href="">
             <li>
-              <button>Account</button>
+              <button>Cuenta</button>
             </li>
           </a>
           <a href="">
             <li>
-              <button>Record</button>
+              <button>Nombre de usuario</button>
             </li>
           </a>
         </ul>
