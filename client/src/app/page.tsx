@@ -24,7 +24,7 @@ export default function HomePage() {
           praesentium fuga, incidunt vero in. Deleniti iure doloremque
           voluptatum amet nemo.
         </p>
-        <Link href={'/auth/login'} className='bg-MainYellow w-[40%] p-2 my-4 rounded text-black font-semibold flex justify-center'>
+        <Link href={'/auth/login'} prefetch={false} className='bg-MainYellow w-[40%] p-2 my-4 rounded text-black font-semibold flex justify-center'>
           <button>
             Log In
           </button>

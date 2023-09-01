@@ -85,12 +85,14 @@ export default function Login() {
                 </p>
               </a>
 
-              <button
-                type="submit"
-                className="bg-MainYellow w-[100%] text-black rounded p-2 font-medium mb-2"
-              >
-                Ingresar
-              </button>
+              <Link href="/dashboard">
+                <button
+                  type="submit"
+                  className="bg-MainYellow w-[100%] text-black rounded p-2 font-medium mb-2 "
+                >
+                  Ingresar
+                </button>
+              </Link>
               <div className="flex justify-center text-sm">
                 <p>
                   ¿No tienes cuenta?{' '}
