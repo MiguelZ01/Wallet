@@ -10,7 +10,7 @@ export default function Dashboard() {
       <div>
         <div className='p-4 flex'>
           <div className='bg-Button w-[20%] text-black p-2 rounded flex mr-4'>
-            <Image src={Coins} width={50} alt='Coins' className='mr-6 ml-2'/>
+            <Image src={Coins} width={50} alt='Coins' className='mr-6 ml-2' />
             <div className='font-semibold '>
               <p className='text-[#3a3938]'>
                 Efectivo
@@ -21,7 +21,7 @@ export default function Dashboard() {
             </div>
           </div>
           <div className='bg-Button w-[20%] text-black p-2 rounded flex mr-4'>
-            <Image src={Coins} width={50} alt='Coins' className='mr-6 ml-2'/>
+            <Image src={Coins} width={50} alt='Coins' className='mr-6 ml-2' />
             <div className='font-semibold '>
               <p className='text-[#3a3938]'>
                 Efectivo
@@ -32,7 +32,7 @@ export default function Dashboard() {
             </div>
           </div>
           <div className='bg-Button w-[20%] text-black p-2 rounded flex'>
-            <Image src={Coins} width={50} alt='Coins' className='mr-6 ml-2'/>
+            <Image src={Coins} width={50} alt='Coins' className='mr-6 ml-2' />
             <div className='font-semibold '>
               <p className='text-[#3a3938]'>
                 Efectivo
