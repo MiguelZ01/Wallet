@@ -8,7 +8,18 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      colors: { MainYellow: '#ffa500', Button: '#D9D9D9' },
+      colors: {
+        bg: '#000000',
+        bg_200: '#161616',
+        bg_300: '#2c2c2c',
+        primary: '#ffa500',
+        primary_200: '#dd8900',
+        primary_300: '#904a00',
+        accent: '#ff6200',
+        accent_200: '#fffca0',
+        text: '#FFFFFF',
+        text_200: '#e0e0e0',
+      },
     },
   },
   plugins: [],
